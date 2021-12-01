@@ -6,6 +6,7 @@ class dice {
 	public :
 		int sides ; 
 		int dices ;
+		int roll ;
 		dice ( int sides1 , int dices1 ) {
 			sides = sides1 ;
 			dices = dices1 ;
@@ -13,8 +14,12 @@ class dice {
 			
 			for ( int x = 0 ; x < dices ; x++ ) {
 				srand(time(NULL)) ; 
-				int roll = rand ( ) %sides+1 ;
+				for ( long x = 0 ; x < 1000000000 ; x ++ ) {
+					continue ;
+				}
+				roll = rand ( ) %sides+1 ;
 				rolls [ x ] = roll ;
+				cout << rolls [ x ] << endl ;
 			}
 		}
 } ;
@@ -27,6 +32,7 @@ int main( ) {
 	cin >> x ; 
 	cout << "How many dices do you want to roll?" << endl ;
 	cin >> y ;
+	cout << endl ;
 	dice gameOne ( x , y ) ;
 	
 	return 0 ;
